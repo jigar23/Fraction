@@ -26,13 +26,25 @@ public:
 	friend Fraction operator+(int left, const Fraction& right);
 
 	//Subtraction operator
+	Fraction operator-(const Fraction& right);
+	Fraction operator-(int right);
+	friend Fraction operator-(int left, const Fraction& right);
 
+	//Multiplication operator
+	Fraction operator*(const Fraction& right);
+	Fraction operator*(int right);
+	friend Fraction operator*(int left, const Fraction& right);
+
+	//Division operator
+	Fraction operator/(const Fraction& right);
+	Fraction operator/(int right);
+	friend Fraction operator/(int left, const Fraction& right);
 
 	//Relational operator
-	bool operator==(const Fraction left);
+	bool operator==(Fraction& left);
 
 	//Simplify
-	void simplify(Fraction&);
+	void simplify();
 	void display();
 };
 
