@@ -42,6 +42,26 @@ void Fraction::setValue(int num, int den)
 	this->den = den;
 }
 
+int Fraction::getDen() const {
+	return den;
+}
+
+void Fraction::setDen(int den) {
+	if(den == 0){
+		std::cout << "0 value set in den" << std::endl;
+		throw std::overflow_error("Divide by zero exception");
+	}
+	this->den = den;
+}
+
+int Fraction::getNum() const {
+	return num;
+}
+
+void Fraction::setNum(int num) {
+	this->num = num;
+}
+
 /**
  * Function for addition operation
  * Used when adding two fractions
@@ -411,7 +431,6 @@ bool operator==(int left, const Fraction& right)
 }
 
 
-
 /**
  * Relational not equal operator
  */
@@ -437,14 +456,24 @@ bool operator!=(int left, const Fraction& right)
 }
 
 /**
+ * Assignment operator
+ */
+Fraction& Fraction::operator=(const Fraction &right)
+{
+	num = right.num;
+	den = right.den;
+	return *this;
+}
+
+/**
  * cout
  */
 std::ostream& operator<<(std::ostream &out, const Fraction &right)
 {
 	if (right.den != 1)
-		out << right.num << "/" << right.den << std::endl;
+		out << right.num << "/" << right.den;
 	else
-		out << right.num << std::endl;
+		out << right.num;
 	return out;
 }
 
