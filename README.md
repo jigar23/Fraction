@@ -9,28 +9,27 @@ Compiling
 
 
 
-
 To use the file,
-#include "src/Fraction.h" in your file.
+ #include "src/Fraction.h" in your file.
 
 =========================================
 Defining Fractions
 =========================================
-Fractions can be defined as:
-Fraction a(1,2); // a = 1/2
-Fraction a(1); // a = 1/1
-Fraction a; // by default a = 0/1
-OR
-Fraction a;
-a.setValue(5,4); // a = 5/4
+Fractions can be defined as: <br>
+Fraction a(1,2); // a = 1/2 <br>
+Fraction a(1); // a = 1/1 <br>
+Fraction a; // by default a = 0/1 <br>
+OR <br>
+Fraction a; <br>
+a.setValue(5,4); // a = 5/4 <br> <br>
 
-NOTE:
-- If you set the den as 0, you will get 'divide by zero' error
-- a.num and a.den are private members. Accessig these members directly will throw error.
+NOTE: <br>
+- If you set the den as 0, you will get 'divide by zero' error <br>
+- a.num and a.den are private members. Accessig these members directly will throw error. <br> <br>
 
-In order to change num or den, use the getNum()/setNum(int) or getDen()/setDen(int) functions
-a.setNum(1);
-b = a.getDen();
+In order to change num or den, use the getNum()/setNum(int) or getDen()/setDen(int) functions <br>
+a.setNum(1); <br>
+b = a.getDen();<br>
 
 ========================================
 Arithmetic operations
