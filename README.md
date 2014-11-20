@@ -7,10 +7,20 @@ Includes mathematical operations for fractions
 Compiling
 =========================================
 
+Clone the repo: <br>
+git clone git@github.com:jigar23/Fraction.git <br>
 
+or Directly download the zip file. <br>
 
-To use the file,
- #include "src/Fraction.h" in your file.
+<b> Compile the code as : </br>
+g++ debug.cc src/Fraction.cc -o debug <br>
+./debug <br>
+
+This will check if all the test cases are passed. <br>
+
+Enter your own code in main.cc and compile as follows: <br>
+g++ main.cc src/Fraction.cc -o main <br>
+./main <br>
 
 =========================================
 Defining Fractions
