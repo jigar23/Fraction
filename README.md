@@ -12,7 +12,7 @@ git clone git@github.com:jigar23/Fraction.git <br>
 
 or Directly download the zip file. <br>
 
-<b> Compile the code as : </br>
+<b> Compile the code as : </b> <br> 
 g++ debug.cc src/Fraction.cc -o debug <br>
 ./debug <br>
 
