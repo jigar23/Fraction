@@ -20,6 +20,10 @@ public:
 	Fraction();
 	Fraction(int num, int den = 1);
 	void setValue(int num, int den = 1);
+	int getDen() const;
+	void setDen(int den);
+	int getNum() const;
+	void setNum(int num);
 
 	//Addition operator
 	Fraction operator+(const Fraction& right);
@@ -84,8 +88,12 @@ public:
 	bool operator!=(int right);
 	friend bool operator!=(int left, const Fraction &right);
 
+	//Assignment operator
+	Fraction& operator=(const Fraction &right);
+
 	//Simplify
 	void simplify();
+
 };
 
 
