@@ -62,9 +62,9 @@ Similar operations can be performed for subtraction, multiplication and division
 
 NOTE: <br>
 The file is designed to work only with integers. <br>
-num = 3.3 will be converted to num = 3 <br>
-den = 0.3 will be converted to den = 0 and will throw 'divide by zero' exception <br>
-Also a = a + 3.3 --> a = a + 3 <br>
+num = 3.7 will be converted to num = 3 <br>
+den = 0.9 will be converted to den = 0 and will throw 'divide by zero' exception <br>
+Also a = a + 3.7 --> a = a + 3 <br>
 
 =============================================
 Relational Operator
