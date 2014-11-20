@@ -49,8 +49,8 @@ void Fraction::setValue(int num, int den)
 Fraction Fraction::operator+(const Fraction& right)
 {
 	Fraction sum;
-	sum.num = (this->num * right.den + right.num * this->den);
-	sum.den = this->den * right.den;
+	sum.num = (num * right.den + right.num * den);
+	sum.den = den * right.den;
 	sum.simplify();
 	return sum;
 }
@@ -62,8 +62,8 @@ Fraction Fraction::operator+(const Fraction& right)
 Fraction Fraction::operator+(int right)
 {
 	Fraction sum;
-	sum.num = (this->num  + right * this->den);
-	sum.den = this->den;
+	sum.num = (num  + right * den);
+	sum.den = den;
 	sum.simplify();
 	return sum;
 }
@@ -82,14 +82,37 @@ Fraction operator+(int left, const Fraction& right)
 }
 
 /**
+ * Function for addition operation
+ * Used when self adding two fractions
+ */
+Fraction& Fraction::operator+=(const Fraction& right)
+{
+	num = (num * right.den + right.num * den);
+	den = den * right.den;
+	this->simplify();
+	return *this;
+}
+
+/**
+ * Function for addition operation
+ * Used when self adding fraction with integer
+ */
+Fraction& Fraction::operator+=(int right)
+{
+	num = (num  + right * den);
+	this->simplify();
+	return *this;
+}
+
+/**
  * Function for subtraction operation
  * Used when subtracting two fractions
  */
 Fraction Fraction::operator-(const Fraction& right)
 {
 	Fraction diff;
-	diff.num = (this->num * right.den - right.num * this->den);
-	diff.den = this->den * right.den;
+	diff.num = (num * right.den - right.num * den);
+	diff.den = den * right.den;
 	diff.simplify();
 	return diff;
 }
@@ -101,8 +124,8 @@ Fraction Fraction::operator-(const Fraction& right)
 Fraction Fraction::operator-(int right)
 {
 	Fraction diff;
-	diff.num = (this->num  - right * this->den);
-	diff.den = this->den;
+	diff.num = (num  - right * den);
+	diff.den = den;
 	diff.simplify();
 	return diff;
 }
@@ -120,6 +143,28 @@ Fraction operator-(int left, const Fraction& right)
 	return diff;
 }
 
+/**
+ * Function for subtraction operation
+ * Used when self subtracting two fractions
+ */
+Fraction& Fraction::operator-=(const Fraction& right)
+{
+	num = (num * right.den - right.num * den);
+	den = den * right.den;
+	this->simplify();
+	return *this;
+}
+
+/**
+ * Function for subtraction operation
+ * Used when self subtracting fraction with integer
+ */
+Fraction& Fraction::operator-=(int right)
+{
+	num = (num  - right * den);
+	this->simplify();
+	return *this;
+}
 
 /**
  * Function for multiplication operation
@@ -128,8 +173,8 @@ Fraction operator-(int left, const Fraction& right)
 Fraction Fraction::operator*(const Fraction& right)
 {
 	Fraction product;
-	product.num = (this->num * right.num);
-	product.den = this->den * right.den;
+	product.num = (num * right.num);
+	product.den = den * right.den;
 	product.simplify();
 	return product;
 }
@@ -141,8 +186,8 @@ Fraction Fraction::operator*(const Fraction& right)
 Fraction Fraction::operator*(int right)
 {
 	Fraction product;
-	product.num = (this->num * right);
-	product.den = this->den;
+	product.num = (num * right);
+	product.den = den;
 	product.simplify();
 	return product;
 }
@@ -161,14 +206,37 @@ Fraction operator*(int left, const Fraction& right)
 }
 
 /**
+ * Function for multiplication operation
+ * Used when self multiplying two fractions
+ */
+Fraction& Fraction::operator*=(const Fraction& right)
+{
+	num = (num * right.num);
+	den = den * right.den;
+	this->simplify();
+	return *this;
+}
+
+/**
+ * Function for multiplication operation
+ * Used when self multiplying fraction with integer
+ */
+Fraction& Fraction::operator*=(int right)
+{
+	num = (num * right);
+	this->simplify();
+	return *this;
+}
+
+/**
  * Function for division operation
  * Used when dividing two fractions
  */
 Fraction Fraction::operator/(const Fraction& right)
 {
 	Fraction i_product;
-	i_product.num = (this->num * right.den);
-	i_product.den = this->den * right.num;
+	i_product.num = (num * right.den);
+	i_product.den = den * right.num;
 	i_product.simplify();
 	return i_product;
 }
@@ -180,8 +248,8 @@ Fraction Fraction::operator/(const Fraction& right)
 Fraction Fraction::operator/(int right)
 {
 	Fraction i_product;
-	i_product.num = this->num;
-	i_product.den = this->den * right;
+	i_product.num = num;
+	i_product.den = den * right;
 	i_product.simplify();
 	return i_product;
 }
@@ -200,20 +268,185 @@ Fraction operator/(int left, const Fraction& right)
 }
 
 /**
- * Relational operator
+ * Function for multiplication operation
+ * Used when self multiplying two fractions
  */
-bool Fraction::operator==(Fraction& left)
+Fraction& Fraction::operator/=(const Fraction& right)
 {
+	num = (num * right.den);
+	den = den * right.num;
 	this->simplify();
-	left.simplify();
-	return (this->num == left.num && this->den == left.den);
+	return *this;
 }
 
-void Fraction::display()
+/**
+ * Function for multiplication operation
+ * Used when self multiplying fraction with integer
+ */
+Fraction& Fraction::operator/=(int right)
 {
-	std::cout << num << "/" << den << std::endl;
+	den = den * right;
+	this->simplify();
+	return *this;
 }
 
+/**
+ * Function for less than operation
+ */
+bool Fraction::operator<(const Fraction& right)
+{
+	return ((float)num/den < (float)right.num/right.den);
+}
+
+/**
+ * Function for less than operation
+ */
+bool Fraction::operator<(int right)
+{
+	return ((float)num/den < right);
+}
+
+/**
+ * Friend Function for less than operation
+ */
+bool operator<(int left, const Fraction& right)
+{
+	return (left < (float)right.num/right.den);
+}
+
+/**
+ * Function for less than equal to operation
+ */
+bool Fraction::operator<=(const Fraction& right)
+{
+	return ((float)num/den <= (float)right.num/right.den);
+}
+
+/**
+ * Function for less than equal to operation
+ */
+bool Fraction::operator<=(int right)
+{
+	return ((float)num/den <= right);
+}
+
+/**
+ * Friend Function for less than equal to operation
+ */
+bool operator<=(int left, const Fraction& right)
+{
+	return (left <= (float)right.num/right.den);
+}
+
+/**
+ * Function for greater than operation
+ */
+bool Fraction::operator>(const Fraction& right)
+{
+	return ((float)num/den > (float)right.num/right.den);
+}
+
+/**
+ * Function for greater than operation
+ */
+bool Fraction::operator>(int right)
+{
+	return ((float)num/den > right);
+}
+
+/**
+ * Friend Function for greater than operation
+ */
+bool operator>(int left, const Fraction& right)
+{
+	return (left > (float)right.num/right.den);
+}
+
+/**
+ * Function for greater than equal to operation
+ */
+bool Fraction::operator>=(const Fraction& right)
+{
+	return ((float)num/den >= (float)right.num/right.den);
+}
+
+/**
+ * Function for greater than equal to operation
+ */
+bool Fraction::operator>=(int right)
+{
+	return ((float)num/den >= right);
+}
+
+/**
+ * Friend Function for greater than equal to operation
+ */
+bool operator>=(int left, const Fraction& right)
+{
+	return (left >= (float)right.num/right.den);
+}
+
+/**
+ * Relational equal operator
+ */
+bool Fraction::operator==(const Fraction& right)
+{
+	return ((float)num/den == (float)right.num/right.den);
+}
+
+/**
+ * Relational equal operator
+ */
+bool Fraction::operator==(int right)
+{
+	return ((float)num/den == right);
+}
+
+/**
+ * Relational equal operator
+ */
+bool operator==(int left, const Fraction& right)
+{
+	return (left == (float)right.num/right.den);
+}
+
+
+
+/**
+ * Relational not equal operator
+ */
+bool Fraction::operator!=(const Fraction& right)
+{
+	return ((float)num/den != (float)right.num/right.den);
+}
+
+/**
+ * Relational not equal operator
+ */
+bool Fraction::operator!=(int right)
+{
+	return ((float)num/den != right);
+}
+
+/**
+ * Relational not equal operator
+ */
+bool operator!=(int left, const Fraction& right)
+{
+	return (left != (float)right.num/right.den);
+}
+
+/**
+ * cout
+ */
+std::ostream& operator<<(std::ostream &out, const Fraction &right)
+{
+	if (right.den != 1)
+		out << right.num << "/" << right.den << std::endl;
+	else
+		out << right.num << std::endl;
+	return out;
+}
 
 /**
  * Takes GCD of 2 numbers
@@ -235,20 +468,20 @@ int gcd(double num, double den){
  */
 void Fraction::simplify()
 {
-	int gcd_o = gcd(this->num, this->den);
-	this->num = this->num/gcd_o;
-	this->den = this->den/gcd_o;
+	int gcd_o = gcd(num, den);
+	num = num/gcd_o;
+	den = den/gcd_o;
 
 	//If denominator 0
-	if(this->den == 0)
+	if(den == 0)
 		throw std::overflow_error("Divide by zero exception");
 
 	//Normalize the values
 	// if fraction = 1/-2, make it -1/2
 	// we will not have case -1/-2 as the gcd will take care of it
-	if (this->den < 0){
-		this->num = -this->num;
-		this->den = -this->den;
+	if (den < 0){
+		num = -num;
+		den = -den;
 	}
 
 }
