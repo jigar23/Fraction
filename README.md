@@ -34,61 +34,61 @@ b = a.getDen();<br>
 ========================================
 Arithmetic operations
 ========================================
-All the common arithmetic operations can be directly performed on these fractions
+All the common arithmetic operations can be directly performed on these fractions <br><br>
 
-Fraction a(1,2);
-Fraction b(-2,3);
-Fraction result;
+Fraction a(1,2); <br>
+Fraction b(-2,3); <br>
+Fraction result; <br> <br>
 
-E.g. Addition
--------------
-result = a + b;
-result = 1 + a;
-result = a + 2;
-a += 1;
-a += b;
+E.g. Addition <br>
+------------- <br>
+result = a + b; <br>
+result = 1 + a; <br>
+result = a + 2; <br>
+a += 1; <br>
+a += b; <br> <br>
 
-Similar operations can be performed for subtraction, multiplication and division.
+Similar operations can be performed for subtraction, multiplication and division. <br> <br>
 
-NOTE:
-The file is designed to work only with integers.
-num = 3.3 will be converted to num = 3
-den = 0.3 will be converted to den = 0 and will throw 'divide by zero' exception
-Also a = a + 3.3 --> a = a + 3
+NOTE: <br>
+The file is designed to work only with integers. <br>
+num = 3.3 will be converted to num = 3 <br>
+den = 0.3 will be converted to den = 0 and will throw 'divide by zero' exception <br>
+Also a = a + 3.3 --> a = a + 3 <br><br>
 
 =============================================
 Relational Operator
 =============================================
 
-Relational operations can be directly performed on fractions
+Relational operations can be directly performed on fractions <br> <br>
 
-a < b
-a <= b
-a < 2
-2 < a
+a < b <br>
+a <= b <br>
+a < 2 <br>
+2 < a <br>
 
-Similar operations can be performed for >
+Similar operations can be performed for > <br>
 
 ==============================================
 Assignment operator
 ==============================================
 
-a = b;
-
-NOTE:
-a = 2; // In this, a is *not* a fraction.
+a = b; <br><br>
+ 
+NOTE: <br>
+a = 2; // In this, a is *not* a fraction. <br>
 
 ==============================================
-Display
+Display 
 ==============================================
 
-Fractions can be directly displayed using cout
+Fractions can be directly displayed using cout <br><br>
 
-cout << a;
+cout << a; <br><br>
 
-==== x ========== x ========== x ======= x =====
+==== x ========== x ========== x ======= x ===== <br>
 
-For any doubts, feel free to email me.
+For any doubts, feel free to email me. <br>
 
 
 
