@@ -1,14 +1,14 @@
 /*
- * main.cc
+ * debug.cc
  *
  *  Created on: Nov 18, 2014
  *      Author: jigar
  */
-
+/*
 #include <iostream>
 #include <assert.h>
 #include <ostream>
-#include "Fraction.h"
+#include "src/Fraction.h"
 
 int main()
 {
@@ -154,5 +154,5 @@ int main()
 	return 0;
 }
 
-
+*/
 
